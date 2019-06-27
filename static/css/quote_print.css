@@ -1,0 +1,17 @@
+
+ul {list-style-type:circle;}
+
+#quote_header span {/*margin-right: 12.5cm;*/}
+#quote_header span.ul {text-decoration: underline;}
+
+h3{font-size: 1em; margin-bottom: 8px;}
+.cols ul {padding:15px; -moz-column-count:3; margin:0; padding:0; list-style-position: inside;}
+.cols ul li { break-inside: avoid-column; -moz-column-break-inside:avoid; column-break-inside:avoid; -moz-column-break-inside:avoid;}
+.float-left {margin:0 10px 10px 0; padding:0 5px;}
+
+.float-left ul {margin:0; padding-left:13px;}
+
+.notes-5 {color:red;}
+.notes-3 {color:#548DD4;}
+.notes-1 {color:#333;}
+

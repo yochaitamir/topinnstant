@@ -1,0 +1,11 @@
+tr.hl {
+	background: repeating-linear-gradient(120deg, white, white, #ccc, #ccc 5px);
+	border: 3px solid #666666;
+}
+
+th.min {min-width:100px;}
+th.notes {width:200px;}
+
+td.left{text-align:left;}
+
+.reserved {font-weight: bold;}

@@ -1,0 +1,55 @@
+
+{% extends "vouchers/base_print.html" %}
+
+{% block voucher_orig %}
+{% block voucher_copy %}
+
+<h1>Site Voucher #{{voucher.id}}</h1>
+<table class='no-borders voucher'>
+	<tbody>
+		<tr>
+			<th>Group:</th>
+			<td>{{voucher.file}}</td>
+		</tr>
+		<tr>
+			<th>Site:</th>
+			<td>{{voucher.plan.supplier}}</td>
+		</tr>
+		{% if voucher.sup.agent_code %}
+			<tr>
+				<th>Agent Code:</th>
+				<td>{{voucher.sup.agent_code}}</td>
+			</tr>
+	    {% endif %}
+		<tr>
+			{% include "vouchers/pax.html" %}
+		</tr>
+{% if voucher.notes %}
+		<tr>
+			<th>Special Event:</th>
+			<td>{{voucher.notes|linebreaksbr}}</td>
+		</tr>
+{% endif %}
+{% if voucher.dateprint %}
+		<tr>
+			<th>Date:</th>
+			<td>{{voucher.date|date:"SHORT_DATE_FORMAT"|default:"_________________"}}</td>
+		</tr>
+		<tr>
+			<th>Time:</th>
+			<td>{{voucher.hour|default:"_______"}}</td>
+		</tr>
+{% endif %}
+		<tr>
+			<th>Payment details:</th>
+			<td>
+				{% if voucher.payment == 's'%} By us
+				{% else %}{{voucher.get_payment_display}}{% endif %}
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+{% endblock voucher_copy %}
+{% endblock voucher_orig %}
+

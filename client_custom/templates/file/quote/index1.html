@@ -1,0 +1,59 @@
+
+{% extends "general.html" %}
+
+{% block title %} {{file}}) - Quotes {% endblock %}
+
+{% block stylesheets %}
+	{{ block.super }}
+	<link rel="stylesheet" href="/static/css/quote.css" />
+{% endblock %}
+
+{% block scripts %}
+	{{ block.super }}
+{% endblock %}
+
+{% block navbar %}
+{{ block.super }}
+<li><a href='../'>{{file}}</a></li>
+<li>Quotes</li>
+{% endblock %}
+
+{% block content %}
+<h1>{{ file }} - Quotes</h1>
+
+<ul id='list' class='big1'>
+{% for quote in quotes %}
+	{% if not quote.ispublished %} <li class='live'>Live:  
+	{% else %}<li>{% endif %}
+	<a href='{{quote.id}}/internal/'>
+	{% if quote.name %}
+		{{quote.name}}
+	{% else %}
+		#{{quote.file.fn}}-{{forloop.revcounter}}
+	{% endif %}
+	</a>
+	<span class='date'>{{quote.date|date:"SHORT_DATETIME_FORMAT"}}</span>
+
+	{% if quote.ispublished %}
+		{% if file.status == 1 %}
+			<a href='{{quote.id}}/revert/{{forloop.revcounter}}/' class='e-btn-edit'>Roll back</a>
+		{% endif %}
+	{% else %}
+		<span>
+			<span>{{quote.notes}}</span>
+<!--			<a href='{{quote.id}}/internal/' class='e-btn-print'>Internal</a> -->
+			<a href='{{quote.id}}/print/' class='e-btn-print'>External</a>
+			<a href='{{quote.id}}/print/german/' class='e-btn-print'>German</a>
+			<a href='{{quote.id}}/' class='e-btn-edit'>Edit</a> 
+			<a href='{{quote.id}}/publish/' class='e-btn-print'>Publish</a>
+		</span>
+	{% endif %}
+	</li>
+{% endfor %}
+</ul>
+
+<a href='new/' class='e-btn-create bold-btn'>Create New Quote</a>
+
+{% endblock %}
+
+

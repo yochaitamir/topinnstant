@@ -1,0 +1,34 @@
+
+#pax_nav {list-style:none; padding:0; margin:0;}
+#pax_nav > li {display:inline-block;}
+#pax_nav > li ul {display:none;}
+.submenu {position:absolute; list-style:none; padding:0; margin:0; z-index:10;}
+.submenu li {display:block; background:#eee;;}
+.submenu li a {padding:4px 10px; display:block;}
+.submenu li a:hover {background:#fafafa; text-decoration:none;}
+
+table#pax_list td textarea {height:1.8em; width:220px;}
+table#pax_list td input {width:120px;}
+#pax_insert .add-row {display:none;}
+tr.new-room {border-top:2px solid #000;}
+
+.col {display:block; float:left; margin-right:20px;}
+.flight {float:none;  display: block; margin-bottom:20px;}
+.flight ul {min-height:50px;}
+.cube-list ul li:hover {cursor:pointer; font-weight:bold;}
+
+.pax-list {background-color: #B9A1A7; min-height:200px; position: absolute; max-width:230px;}
+
+#arrivals, #departures {display:inline-block; vertical-align: top; min-height: 300px; width: 495px;}
+#arrivals > h2, #departures > h2 {border-bottom:2px solid #E8C346; background:#1C1C36; color:#E8C346;}
+#arrivals {border-right:2px solid #999; margin-right:10px;padding-right:20px;}
+#departures {padding-left:20px;}
+.drop-active {background-color:#ffffcc;}
+
+.cube-list h2 .size {float:right; color:#666;}
+.cube-list h2 span.date {color:#666; font-weight:normal;}
+
+#flights_a, #pax_d {}
+/*#flights_a, #pax_d {mergin-left: 240px;}*/
+
+#rl_notes {padding:1em; margin-bottom:1em; border:1px solid #777;}

@@ -1,0 +1,11 @@
+
+#cube_container {text-align: center; width: 100%;}
+#login_cube {text-align: left; margin: 7% auto; width:375px;}
+#login_cube h2 {margin: 0; padding: .3em;  font-size: 14pt;}
+#login_cube div {padding: .5em; margin: .5em; line-height: 1.8;}
+#login_cube input {float: right; border: 0 none; border-radius: 5px; box-shadow: 0 0 10px #AAA inset;  padding: 0 5px;width: 250px; height: 35px;  color: #666; font-size: 20px;}
+#btn_container {text-align: right;}
+#error {text-align: left; display: inline-block; margin-top: 10%;}
+#error #icon {float: left; margin-right: .3em;}
+
+#footnotes {text-align:center;}

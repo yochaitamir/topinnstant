@@ -1,0 +1,113 @@
+
+{% extends "general_print.html" %}
+
+{% block title %} {{ file }} - Print{% endblock %}
+
+{% block stylesheets %}
+		{{ block.super }}
+		<link rel="stylesheet" href="/static/css/schedule_print.css" />
+{% endblock %}
+
+{% block print-header %}
+{% endblock %}
+
+{% block content %}
+
+<h1>{{file}} </h1>
+<h2 class='center'>{{file.dates_range}} ({{file.days}} Days / {{file.nights}} Nights)
+</h2>
+<p>
+Operator: <strong>{{file.operator}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Pax: <strong>{{file.get_pax}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Agent: <strong>{{file.agent}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Tour Leader: <strong>{{file.leader}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+
+</p>
+<table>
+	<thead>
+		<tr>
+			<th>No.</th>
+			<th>Date</th>
+			<th class="min" style='width: 30%;'>Sites & Others</th>
+			<th>Bus</th>
+			<th>Guide</th>
+			<th class="min">Meals</th>
+			<th>Acccomodation</th>
+			<th>R/L</th>
+			<th class="notes">Notes</th>
+		</tr>
+	</thead>
+{% for r in tbl %}
+	<tr {% if r.d|date:"w" == "5" or r.d|date:"w" == "6"  %} class='hl' {% endif %}>
+		<td>{{forloop.counter}}</td>
+		<td>{{r.d|date:"l"}}<br/>{{r.d|date:"d/m/y"}}</td>
+		<td class="left">
+			{% for s in r.sites %}
+				<div {% if s.reservation %} class='reserved' {% endif %}>
+				{%if s.stime %} {{s.stime}} {% endif %} {{s.supplier}}
+				{%if s.hour %} {{s.hour}} {% endif %} {{s.description}}
+				</div>
+			{% endfor %}
+		</td>
+		<td>
+			{% for b in r.buses %}
+				{{b.type}}
+			{% endfor %}
+		</td>
+		<td>
+			{% for b in r.guides %}
+				{{b.type}}
+			{% endfor %}
+		</td>
+
+		<td class="left">
+			{% for r in r.meals %}
+				<span {% if r.reservation %} class='reserved' {% endif %}>
+				{%if r.stime %} {{r.stime}} {% endif %} {{r.supplier}}
+				</span>
+				{% if not forloop.last %}, {% endif %}
+			{% endfor %}
+		</td>
+		<td class="left">
+			{% for h in r.accom %}
+				{{h.supplier}}
+				{% if not forloop.last %},<br/>{% endif %}
+			{% endfor %}
+		</td>
+		<td></td>
+		<td></td>
+	</tr>
+{% endfor %}
+</table>
+Reserved sites and restaurants in bold.
+
+{% comment %}
+{% if file.notes %}
+<div>
+<h3>Notes: </h3>
+{file.notes|linebreaks}}
+</div>
+{% endif%}
+{% endcomment %}
+
+<br/>
+<div>
+<strong>Buses: </strong>
+{% for b in buses %}
+	{{b.type}}: {{b.amount}} 
+	{% if not forloop.last %}, {% endif %}
+{% endfor %}
+<strong> Total: {{bus_sum}}</strong>
+</div>
+<p>{% include "utils/guide_s.html" with guides=file.guides full=1 %}</p>
+<p>{% include "utils/bus_s.html" with buses=file.buses.suppliers %}</p>
+
+<div>
+Proforma Invoices: ___________, 
+Invoices: __________, 
+Receipts: __________
+</div>
+{% endblock %}
+

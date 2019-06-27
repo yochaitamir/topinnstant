@@ -1,0 +1,9 @@
+iframe {border:0 none; width:100%; height:25cm; overflow:visible; /*page-break-inside: avoid;*/ page-break-after:always;}
+div.iframe_cont {height:25cm;}
+
+@page {size: auto; margin: 25mm 25mm 25mm 25mm;}
+
+@media print {
+	#controls {display:none;}
+}
+

@@ -1,0 +1,36 @@
+
+a {color: #000;}
+
+ul.errorlist, .form-error {color: red;}
+
+div.frame {border-color:#493f0b;}
+
+input.filter {border-color: #493f0b;}
+
+input[readonly] {background-color: #F0F0F0; color: #000; border-color:  #000;}
+input.required-error {background-color:#F99A9F !important; border-color: red !important; } 
+
+.bold-btn {background: -moz-linear-gradient(#F09000,#EB6E00) !important; color: #fff; border-color:#C9C2BC;}
+.bold-btn .ui-button-text {color:#000;}
+.bold-btn:hover, .bold-btn .ui-button-text:hover {color: #ddd;}
+
+/*
+input.contract-price {background-color:#C1C1BD; border: 1px solid blue; text-align: center;}
+*/
+
+input[type="number"].quote-price {background-color:#FFF294; border-color: #DFC904;}
+input.quote-price {background-color:#FFF294; border-color: #DFC904; width:30px;}
+input[type="number"].special-price {background-color:#E1E2F8; border-color: blue;}
+
+/* Added: 25.5.2014 */
+/* new colors - lara+hadas */
+.ec-bus td {background-color: #A79CDB;}
+.ec-guide td {background-color: #fff9b1;}
+
+.ec-pool #pool span.site {background-color: #9EBC8E;}
+.ec-pool #pool span.rest {background-color: #FFB896;}
+.ec-pool #pool span.other {background-color: #99F8FF;}
+.ec-pool {background-color: #CEDEBF;}
+
+tr.ec-hotels td.ec-hotel1 {background-color: #A69471;}
+

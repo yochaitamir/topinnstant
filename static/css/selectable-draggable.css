@@ -1,0 +1,7 @@
+	
+.cube-list {min-width:200px;}
+.cube-list ul {margin:0px; padding:10px 40px 10px 10px;}
+.cube-list ul li {list-style-position:inside;}
+.ui-selecting { background: #FECA40; }
+.ui-selected { background: #F39814; }
+

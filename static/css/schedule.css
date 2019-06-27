@@ -1,0 +1,151 @@
+
+#operator_name {position:fixed; background:#068C8A; top:30px; right:-50px; transform: rotate(45deg); color:#fff; padding: 7px 50px; text-align:Center; z-index: 10;}
+
+#file_details {width: 100%; margin-top: 5px; clear:both;}
+#file_details .label {color: #E8C346; font-weight: bold; margin-right: 10px; }
+#file_details #basic {background-color: #F6FFF6; cursor: pointer; overflow: hidden; padding: 0 10px;height: 30px; line-height: 30px;}
+#file_details #basic a {text-decoration: none !important; }
+#file_details #icons_menu {background:#fff; color:#111; position:absolute; right:0; top:50px;}
+
+#file_details #basic_more {overflow: hidden; }
+#file_details #extended {padding: 0 1em; line-height: 2em; }
+#file_details #extended input { text-align: left; }
+#file_details .box {display:inline-block; width:31%; margin-right:2%;}
+#file_details #extended #id_notes, #file_details #extended #id_internal_notes, #file_details #extended #id_alerts { width: 100%; vertical-align: text-top; height:8em;}
+#button { padding: .5em 1em; text-decoration: none; }
+
+.ec-row-head .more {display:none;}
+.ec-row-head .more button {display:block; margin: 4px auto;}
+
+#invalids #clean_btn {background: -moz-linear-gradient(#C82828, #AE0303) repeat scroll 0 0 transparent; color:#fff;}
+
+#sites_dialog .dest, #restaurants_dialog .dest {overflow-y:scroll; height:475px;}
+#sites_dialog .dest table th, #restaurants_dialog .dest table th {text-align:center;}
+#sites_dialog .source , #restaurants_dialog .source {display: inline-block; }
+#sites_dialog .controls, #restaurants_dialog .controls {display: inline-block; text-align: center; width: 5%;}
+#sites_dialog .controls button, #restaurants_dialog .controls button {display: block; position: absolute; }
+#sites_dialog .controls .add, #restaurants_dialog .controls .add {top: 50%;}
+#sites_dialog .controls .remove , #restaurants_dialog .controls .remove {bottom: 40%;}
+#sites_dialog .dest, #restaurants_dialog .dest {vertical-align: top; display: inline-block; width: 55%;}
+#sites_dialog .source, #restaurants_dialog .source  {width: 38%; height: 475px;}
+#sites_dialog #sites_form .add-row, #restaurants_dialog #restaurants_form .add-row {display:none;}
+
+/* .currency {float:right;} */
+
+#others_dialog #others_pool {float:left; margin-right:15px;}
+#others_dialog #others_pool table {border-collapse:collapse;}
+#others_dialog #others_pool table tr:hover {background: #eee; cursor:pointer;}
+#others_dialog #others_pool table td {border:1px solid #aaa; padding:2px 4px;}
+
+.active {box-shadow: inset 0 0 1.5em gold; background:#fff;}
+
+/*
+.ui-draggable {cursor: pointer;}
+*/
+.ec-day-active {background-color: #abe7e2;}
+
+.dialog-error {color: red;}
+
+#hotels_dialog #nights_formset {/*border: 1px solid #aaa; margin: 10px; padding: 12px; -moz-border-radius: 5px; */ font-size: 0.9em;}
+#hotels_dialog .message {color:red; font-weight:bold;}
+
+.ec-container {margin-top:15px;}
+.ec-table { width: 100%; background-color: #ccc; border-collapse:collapse;}
+.ec-table td, .ec-table th { text-align: center; border:1px solid #000;}
+.ec-table th.ec-row-head { background-color: #f8f8f8; color: #000; min-width: 80px;}
+.ec-table th.ec-th { font-weight: normal; padding: 0; min-width: 90px;}
+.ec-table td { padding: 3px ; max-width:100px;}
+
+.ec-table tr td.ec-row-head a {margin: 0; background-image:url('/static/icons/pencil.png'); padding-left: 24px; background-repeat: no-repeat;}
+.editable {margin: 0; background-image:url('/static/icons/pencil.png'); padding-left: 24px; background-repeat: no-repeat; height: 22px; line-height: 22px;}
+
+
+.ec-th .ec-day-num {float: left; background-color: #444; color: #fff; font-size: 14px; height:20px; line-height:20px; width: 14px;}
+
+colgroup.regular {background-color: #F5F5F5;}
+colgroup.friday { font-weight: bold; background-color: #e5e5e5; }
+colgroup.saturday { font-weight: bold; background-color: #dbdbdb !important; }
+colgroup.sunday { font-weight: bold; background-color: #e5e5e5; }
+colgroup.saturday th { font-weight: bold; background-color: #dbdbdb !important; }
+
+#ec-hours-row {padding: 0 !important;}
+/*
+#bus_header:hover, #guide_header:hover {cursor: pointer; -moz-user-select: none; text-decoration: underline;}
+*/
+#bus_header:hover, #guide_header:hover {-moz-user-select: none;}
+.ec-bus td { background-color: #e98fff; }
+.ec-guide td { background-color: #fdc009; }
+.ec-bus td div.edit, .ec-guide td div.edit {display: none; text-align: left;}
+.ec-bus td div ul, .ec-guide td div ul {list-style: none; padding: 0; margin: 0; white-space: nowrap;}
+.ec-guide td .conflict {color:red; font-weight:bold;}
+
+.ec-pool {background-color:#CEEBBE;}
+.ec-pool #pool {text-align: left; padding: .2em; width: 100%;}
+.ec-pool #pool span {border-radius: .3em; padding: .1em .4em; margin: .1em .3em; line-height: 1.3em; display: inline-block; box-shadow: 1px 1px 1px #565656;}
+.ec-pool #pool span.site {background-color: #74d700; border: 1px solid #2f5700;}
+.ec-pool #pool span.rest {background-color: #ee6ce3; border: 1px solid #895269;}
+.ec-pool #pool span.transportation {background-color: #e98fff; border: 1px solid #0A0AFF;}
+.ec-pool #pool span.other {background-color: #99F8FF; border: 1px solid #0A0AFF;}
+
+.ec-hour:first-of-type {border-top: 0;}
+td.ec-day {vertical-align: top; padding: 3px; min-height: 100px;}
+.ec-events {min-height: 110px; position: relative; font-size: .9em;}
+.ec-events .title {font-weight: bold; margin: 0; color: #fff; width: 100%; text-align: center;}
+.ec-events-view ul{border:0 none;}
+.ec-events-unscheduled {border: 1px solid #ba0f37; margin: 0;}
+.ec-events-unscheduled .title {background-color: #ba0f37;}
+.ec-events-scheduled {border: 1px solid #3fb306; margin-top: 10px;}
+.ec-events-scheduled .title {background-color: #3fb306;}
+
+.ec-events-view {border: 0 none; min-height:inherit;}
+.ec-events-view .title {display:none;}
+
+.ec-events ul li.event-error, .ec-pool #pool span.event-error {background-image: url('../imgs/error-bg.png'); font-weight:bold;}
+
+.event-voucher, .event-reservation {background:#555; color:#eee; border-radius:12px !important; padding:1px 4px !important; margin: 0 2px 0 0 !important;}
+.event-error {background: red; color: #FFFFFF;}
+.event-norv {padding:9px;}
+
+.ec-day ul {text-align: left; padding-left: 3px; margin: 0;}
+.ec-day ul li {list-style:none; margin-top:4px;}
+.ec-day ul li:before {content: "- ";}
+
+.ec-day li.site {color: #398f0e;}
+.ec-day li.rest {color: #e104ba;}
+.ec-day li.transportation {color: purple;}
+.ec-day li.other {color: #0A0AFF;}
+
+tr.ec-hotels th {background:#5D2C17; color:#fff;  position: relative; z-index: 500;}
+tr.ec-hotels th a {color:#fff;}
+
+tr.ec-hotels td.ec-hotel0 {background-color: #fff; color: #fff; min-width: 45px;}
+tr.ec-hotels td.ec-hotel1 {background-color: #c8872b; color: #000;}
+tr.ec-hotels td.ec-hotel2 {background-color: #9d6e2a; color: #fff;}
+tr.ec-hotels td.hotel-edit-new {cursor: pointer;}
+tr.ec-hotels td.hotel-edit-planned {cursor: pointer;}
+tr.ec-hotels td.ui-selecting {background-color: #CDAA7D; cursor: pointer;}
+tr.ec-hotels td.ui-selected {background-color: #8B7355; color: #fff;}
+
+#hotels_btn, #hotels_adv_btn {display: block; margin: 10px 0;}
+
+#dbl_booking {position: absolute; color:red; border: 3px solid red; border-width:3px 0; left:85px; -moz-transform: rotate(-15deg); opacity:0.5; background:#fff; margin-top:-60px; padding:2px 6px;}
+
+#megalist {margin:20px 0 0;}
+
+.hl {background:#99FFCC;}
+.cxd {color:#777;}
+
+#nav_bar {display:none;}
+#content > h1 {display:none;}
+
+#printmenu {position:absolute; list-style:none; padding:0; margin:0; z-index:10; display:none; margin-top:-70px; border:1px solid #777;}
+#printmenu li {display:block; background:#eee;;}
+#printmenu li a {padding:4px 10px; display:block; color:#000;}
+#printmenu li a:hover {background:#fafafa; text-decoration:none;}
+
+/* Added: 25.5.2014 */
+#id_notes {height:95px; width:200px;}
+
+.daily-notes {width:10px; height:10px; background-color:red; display:block; float:right; cursor:pointer;}
+
+.more-info-i {position:absolute; width:14px; height:14px; line-height:14px; background:#777; color:#fff; border-radius:7px; cursor:pointer;}

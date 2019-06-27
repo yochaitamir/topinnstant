@@ -1,0 +1,45 @@
+
+a {color: #000;}
+
+ul.errorlist, .form-error, .error{color: red;}
+.note {color:#1757E4;}
+
+div.frame {border-color:#493f0b;}
+
+input.filter {border-color: #493f0b;}
+
+input[readonly] {background-color: #F0F0F0; color: #000; border-color:  #000;}
+input.required-error {background-color:#F99A9F !important; border-color: red !important; } 
+
+.bold-btn {background: -moz-linear-gradient(#F09000,#EB6E00) !important; color: #fff; border-color:#C9C2BC;}
+.bold-btn .ui-button-text {color:#000;}
+.bold-btn:hover, .bold-btn .ui-button-text:hover {color: #ddd;}
+
+.alert {background:#ff00ff; border:2px solid #990099; border-radius:5px; padding:1em; color:#fff; font-size:1.3em;}
+
+/*
+input.contract-price {background-color:#C1C1BD; border: 1px solid blue; text-align: center;}
+*/
+
+.quote-price {background-color:#FFF294; border-color: #DFC904;}
+.special-price {background-color:#E1E2F8; border-color: blue;}
+
+/* Added: 25.5.2014 */
+/* new colors - lara+hadas */
+.ec-bus td {background-color: #A79CDB;}
+.ec-guide td {background-color: #fff9b1;}
+
+.ec-pool #pool span.site {background-color: #9EBC8E;}
+.ec-pool #pool span.rest {background-color: #FFB896;}
+.ec-pool #pool span.other {background-color: #99F8FF;}
+.ec-pool {background-color: #CEDEBF;}
+
+tr.ec-hotels td.ec-hotel1 {background-color: #A69471;}
+
+td.colorful-td {border:1px solid #555; color:#000; text-align: center;}
+td.colorful-td:nth-child(5n+1) {background:#ffdead;}
+td.colorful-td:nth-child(5n+2) {background:#FFC0CB;}
+td.colorful-td:nth-child(5n+3) {background:#FFF8DC;}
+td.colorful-td:nth-child(5n+4) {background:#B0E0E6;}
+td.colorful-td:nth-child(5n+5) {background:#7FFFD4;}
+td.colorful-td.none {background:#ddd;}

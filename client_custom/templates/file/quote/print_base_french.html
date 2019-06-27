@@ -1,0 +1,93 @@
+{% extends "general_print.html" %}
+{% block title %} Offre tarifaire {{quote.id}} {% endblock %}
+
+{% block stylesheets %}
+		{{ block.super }}
+		<link rel="stylesheet" href="/static/css/quote_print.css" />
+{% endblock %}
+
+{% block content %}
+<span class='print-date'>{{quote.date|date:"l, F d, Y"}}</span>
+<div id='quote_header'>
+	<h1>{% if internal %}Internal{% endif %} Offre tarifaire</h1>
+	<table class='no-borders two-cols'>
+	<tbody>
+	<tr>
+		<th>Destinataire:</th><td>{{quote.to}} {{quote.file.agent}}</td>
+		<th>Offre Numéro.</th><td>#{{quote.id}} (File #{{quote.file.fn}})</td>
+	</tr>
+	<tr>
+
+	</tr>
+	<tr>
+		<th>De:</th><td>{{quote.file.operator}}</td>
+	</tr>
+	<tr>
+		<th>Titre:</th> <td> {{quote.file.name}}</td>
+		<th>Dates du tour:</th><td>{{quote.file.dates_range}}</td>
+	</tr>
+	</tbody>
+	</table>
+	<br/>
+
+{% if quote.opening_notes %}
+	<p>{{quote.opening_notes|linebreaks}}</p>
+{% else %}
+<p>Shalom et salutations depuis Jérusalem!</p>
+
+<p>Merci de nous accorder l'opportunité de vous fournir notre offre tarifaire pour votre visite. Veuillez trouver ci-dessous nos meilleurs tarifs en fonction de votre itinéraire demandé. Les tarifs sont basés sur l'hébergement indiqué ci-dessou similaire).</p>
+
+{% endif %}
+
+<div id='quote_accom'>
+{% if hotels %}
+<h3>Hébergements:</h3>
+{% block accom %} {% endblock %}
+
+{% if quote.accom_notes %}<p>{{quote.accom_notes|linebreaks}}</p>{% endif %}
+
+{% else %}
+<h2>No Hotels Included.</h2>
+{% endif %}
+
+{% block rates %}{% endblock %}
+
+{% block quotebody %}{% endblock quotebody %}
+
+<h3>Conditions tarifaires:</h3>
+<ul>
+	<li>L'offre tarifaire comprend les passagers gratuits indiqués à côté du nombre de passagers payants dans chaque catégorie (c'est-à-dire que 20 + 1 signifie 1 passager gratuit si 20 passagers payants le forfait complet).</li>
+	<li>Tous les passagers gratuits sont en partage de chambre double, limités à 4 passagers gratuits. Des gratuits supplémentaires peuvent être calculés</>
+	<li>Le nombre de chambres individuelles dans chaque groupe ne devrait pas dépasser 10% du nombre total de chambres. S'il y a une demande pour plus de chambres individuelles, il est possible que les hôtels facturent selon le tarif de chambre double</li>
+	<li>Les taux pourraient être modifiés en raison de la fluctuation du dollar américain et des prix du carburant</li>
+	<li>Les taux sont valables uniquement pour ces dates; tout changement nécessitera une réévaluation (fêtes juives, haute saison, etc.</li>
+	<li>Les casques d'écoute ne sont pas inclus dans l'offre tarifaire. Si vous souhaitez inclure des écouteurs dans votre forfait, veuillez informer votre tour opérateur</li>
+	<li>Le prix N'INCLUT PAS: quelque couverture médicale, dépenses personnelles et les pourboiresguide 
+/ chauffeur /
+ hôtels /
+ restaurants</li>
+	<li>Les frais d'annulation seront conforme aux regles de l'Association israélienne des hôtel</li>
+	<li>L'enregistrement dans les hôtels les samedis soirs est soumis à un enregistrement tardif qui pourrait être jusqu'à trois heures après la sortie du Shabbat.</li>
+	<li>Les troisièmes lits dans les chambres sont habituellement rabattables sur des canapés ou des lit</li>
+	<li>Les frais d'annulation sont soumis aux règles de l'Association israélienne des hôtels. Les annulations après 60 jours avant l'arrivée provoquent éventuellement la facturation pour le coût total des services. Pour plus de détails pour votre spécifique tour, veuillez discuter de ce problème avec votre tour opérateur</li>   
+	<li>
+<strong>B&B</strong> = Petit-déjeuner,
+<strong>H/B</strong> = Petit-déjeuner et dîner,
+<strong>F/B</strong> = Petit-déjeuner, déjeuner et dîner
+</li>
+</ul>
+
+{% block remarks %} {% endblock %}
+
+{% if quote.closing_notes %}
+	{{quote.closing_notes|linebreaks}}
+{% else %}
+
+	<p>Veuillez indiquer si vous acceptez et confirmez les tarifs et les services mentionnés ci-dessus. Veuillez également nous faire savoir si vous avez d'autres questions, des demandes spéciales ou si vous souhaitez apporter des ajustements à ces services. Nous sommes impatients de vous servir ici en Israël.</p>
+	<br/>
+	<p>Merci pour votre collaboration,</p>
+	<p>Meilleures salutations,</p>
+	{{file.operator}}
+{% endif %}
+
+{% endblock %}

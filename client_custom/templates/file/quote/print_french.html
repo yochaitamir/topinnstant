@@ -1,0 +1,118 @@
+
+{% extends "file/quote/print_base_french.html" %}
+
+{% block accom %}
+
+<table class='full-width' border="1">
+	<thead>
+		<tr>
+			<th>Hotel</th>
+			<th>Dates</th>
+			<th>Nuitées et pension</th>
+			<th>Remarques</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+		{% for h in hotels %}
+			{% if not h.ph.cxd %}
+			<td rowspan='{{h.rowspan}}'>{{h.ph.supplier}}</td>
+				{% for b in h.boards %}
+					<td>{{b.from_date|date:"SHORT_DATE_FORMAT"}} - {{b.till_date|date:"SHORT_DATE_FORMAT"}}</td>
+					<td>{{b.nights }} Nuitéeson {{b.board }}</td>
+					<td>{{h.ph.notes|linebreaks }}</td>
+					</tr><tr>
+				{% endfor %}
+			{% endif %}
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock accom %}
+
+{% block rates %}
+<h3>Taux en dollars américains USD</h3>
+
+<table border="1">
+	<tbody>
+		<tr><th>Pax </th>{% for title in pricing_tbl.titles %}<td>{{ title }}</td>{% endfor %}	</tr>
+		<tr><th>Taux </th>{% for total in pricing_tbl.totals %}<td>{{ total }}</td>{% endfor %}</tr>
+		{% comment %}
+		<tr><th>Coach Type </th>{% for bust in pricing_tbl.buses_types %}<td>{{ bust }}</td>{% endfor %}</tr>
+		{% endcomment %}
+	</tbody>
+</table>
+
+<p>Les taux sont en dollars américain USD par personne en chambre double.<br/>
+Pax est le nombre de personnes par autobus; le maximum est de 50 personnes par autobus. Vous serez facturé en fonction du nombre de pax par autobus, également dans le cas de plusieurs autobus</p>
+
+<p>Supplément pour chambre individuelle: <strong>{{quote.file.currency}} {{ single_suppliment }}</strong>
+{% if child_reduction != 0 %}
+	<br/>Reduction of Child <u>as third</u> in room: <strong>{{quote.file.currency}} {{ child_reduction }}</strong>
+{% endif %}
+{% if third_reduction != 0 %}
+	<br/>
+	Reduction of Third person in room: <strong>{{quote.file.currency}} {{ third_reduction }}</strong>
+{% endif %}
+</p>
+
+{% endblock rates %}
+
+{% block quotebody %}
+
+{% if sites.0 %}
+<div class='nobreak'>
+	<h3>Sites inclus dans l'offre tarifaire:</h3>
+	<div class='cols'>
+		<ul>{% for site in sites.0 %} 
+			{% if site.ispublished %}<li>{{ site.supplier }}</li>{% endif %}
+		{% endfor %}</ul>
+	</div>
+</div>
+{% endif %}
+{% if rests.0 %}
+<div class='nobreak'>
+	<h3>Restaurants inclus dans l'offre tarifaire:</h3>
+	<div class='cols'>
+		<ul> {% for rest in rests.0 %}
+			{% if rest.ispublished %}<li>{{ rest.supplier }}</li>{% endif %}
+		{% endfor %} </ul>
+	</div>
+</div>
+{% endif %}
+
+<div class='nobreak'>
+<h3>Autres services inclus dans l'offre tarifaire:</h3>
+	<div class='cols'>
+	<ul>
+		{% for gd in guide_days %}
+			{% if gd.1 > 0 %}
+				<li>Guide: {{gd.1}} day{{gd.1|pluralize}} {{gd.0}} </li>
+			{% endif %}
+		{% endfor %}
+		{% for bd in bus_days %}
+			{% if bd.1 > 0 %}
+				<li>Bus: {{bd.1}} day{{bd.1|pluralize}} {{bd.0}} </li>
+			{% endif %}
+		{% endfor %}
+		{% for og in others_g %}
+			<li>{% if og.amount > 1 %}{{og.amount}}{% endif %} {{og}} {% if og.isdaily %} per day{% endif %}</li>
+		{% endfor %}
+		{% for op in others_p %}
+			<li>{% if op.amount > 1 %}{{op.amount}}{% endif %} {{op}} {% if op.isdaily %} per day{% endif %} </li>
+		{% endfor %}
+	</ul>
+	</div>
+	<br/>
+	<strong>Tout autres services non mentionnés ci-dessus ne sont pas inclus. </strong
+</div>
+{% endblock %}
+
+{% block remarks %}
+<h2>Remarques:</h2>
+{% if file.itinerary %}
+{% autoescape off %}
+{{file.itinerary}}
+{% endautoescape %}
+{% endif %}
+{% endblock %}
+

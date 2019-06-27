@@ -1,0 +1,75 @@
+
+#loading {position: fixed; margin:0 auto; left:40%; top:30%; background:#afeeee; border-radius: .5em; padding: .5em 4em; line-height:30px;}
+#loading img {vertical-align: middle; margin-left:2em;}
+
+#transpop_chart {}
+#transpop_chart tr.header th {font-size:.5em; padding:0 2px;}
+#transpop_chart tr.vsum {border-top:3px solid #555;}
+#transpop_chart tr.vsum th {cursor: pointer;}
+#transpop_chart tr.vsum td {height:20px; text-align: center;}
+/*#transpop_chart tr.vsum.closed td.day {background:#fff !important;}*/
+#transpop_chart tr.vsum.closed td.day.blankbg {background:#fff !important;}
+#transpop_chart tr.vsum.closed td.day.requested {border:4px solid orange;}
+#transpop_chart tr.vsum td.freeday {background:#00FF00;}
+#transpop_chart tr.vsum td.overlap {background:#ff4500;}
+#transpop_chart tr.vsum td.event {background:#ffcc66;}
+#transpop_chart tr.vsum td.olhours {background:#ff4500; background:blue;}
+#transpop_chart tr.vsum td.olhours::before {content:"⏲"; font-size: 1.5em; color: #fff;}
+
+/*
+#transpop_chart tr.vsum.open td.day {background:initial !important;}
+*/
+#transpop_chart tr.vdetails td {position: relative;}
+
+#baloon::before {
+	position: absolute; bottom: -22px; left: 22px; display: block; width: 0; content: "";
+	border-color: #fff transparent; border-style: solid; border-width: 23px 18px 0;
+}
+#baloon::after {
+    position: absolute; display: block; bottom: -15px; left: 28px; width: 0; content: "";
+	border-color: #000 transparent; border-style: solid; border-width: 18px 12px 0;
+}
+#baloon {
+	position: absolute; padding: 5px; width:70px; height: 50px; display:none;
+	background: #000; border: 5px solid #fff; border-radius: 10px; box-shadow: 0 0 12px #666; /*opacity:0.7;*/
+	text-align:center; font-size:0.8em; color:#fff; z-index:100; vertical-align:middle;
+}
+#baloon.overlap {color:#ff4500;}
+
+#tooltip {
+	position: absolute; padding: 15px; width:300px; height: 150px; display:none;
+    background: #000; border: 5px solid #fff; border-radius: 10px; box-shadow: 0 0 12px #666; /*opacity:0.7;*/
+	text-align:left; font-size:0.8em; color:#fff; z-index:100; overflow-y: auto;
+}
+#tooltip h4 {margin-top:0;}
+
+#assign_vehicles tbody th {min-width: 300px; text-align: left;}
+
+#unassigned_groups {}
+#unassigned_groups ul {display:none;}
+
+.file-div {position:absolute; opacity:0.8; cursor:default; overflow: hidden; z-index:1;}
+.file-div a {display:block; text-decoration:none;}
+.file-div.hl {box-shadow: inset 10px 10px 10px 0px rgba(237,227,38,1);}
+.file-div.hl {box-shadow: 0px 0px 20px 0px yellow; border: 3px solid yellow; margin-top:-3px; margin-left:-3px;}
+
+.color-box1, .color-box2, .color-box3 {float:right; width:22px; height:22px; margin: -5px 10px 0 0; border:0 none;}
+.color-box1 {background:#fff;}
+.color-box2 {background:#e8c346;}
+.color-box3 {background:#baffc9;}
+
+.big-cube .box .error {color:red;}
+.big-cube .box .error div:first-letter {text-transform:capitalize;}
+
+.big-cube.new {border-color:#e8c346;}
+.big-cube.new h2 {background:#e8c346;}
+
+#linear_loader {position:absolute; right:15%; top:12em;}
+
+/*
+#file_form table tr.error {box-shadow: 0 0 5px red inset;}
+#file_form table td.error {background:red; color:#fff;
+*/
+#file_form table td.error {box-shadow: 0 0 5px red inset;}
+#file_form table td.error.hours-error {box-shadow: 0 0 10px blue inset;}
+

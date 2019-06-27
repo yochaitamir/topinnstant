@@ -1,0 +1,16 @@
+<strong>Please wire payment in 
+{% if invoice.currency %} {{invoice.currency}}
+{% else %}
+	{% if proforma.currency %} {{proforma.currency}}
+	{% else %}US Dollars
+	{% endif %}
+{% endif %}
+to:</strong><br/><br/>
+<strong>Sar-El Tours & Conferences Ltd.</strong><br/>
+Bank Hapoalim<br/>
+Branch 748 - Talpiot<br/>
+Derech Hebron 101<br/>
+Jerusalem, Israel <br/>
+Account Number: 537775<br/>
+SWIFT Code: POALILIT<br/>
+IBAN Number: IL 540127480000000537775

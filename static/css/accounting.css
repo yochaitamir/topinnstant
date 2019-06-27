@@ -1,0 +1,14 @@
+.sum-total {border-top: 1px solid #000; display:block; font-size:1.2em; margin-top:0.5em; text-align:left; padding-top: 5px;}
+#sum_total.minus {color:red;}
+#sum_total.plus {color:green;}
+
+.e-btn-delete-short {padding:0;}
+.e-btn-delete-short  .ui-button-text {padding:0;}
+
+/* Added: 25.5.2014 */
+.big-cubes-container table tr td:nth-child(even) {background:#eee;}
+
+.big-cubes-container table tr.paid-voucher {color:green;}
+.big-cubes-container table tr.paid-voucher a {color:green;}
+
+.big-cubes-container table tr.hl, .big-cubes-container table tr.hl a {color:#9f00a7;}

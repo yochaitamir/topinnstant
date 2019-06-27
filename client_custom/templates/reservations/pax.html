@@ -1,0 +1,10 @@
+<th>Number of Guests:</th>
+<td>
+<strong>{% if res.pax == 0 %}_______{% else %}{{res.pax}}{% endif %}</strong>
+</br>
+</br>
+{% if res.adults == 0 %}_______{% else %}{{res.adults}}{% endif %} Adults, 
+{% if res.children == 0 %}_______{% else %}{{res.children}} {% endif %} Children,
+{% if res.staff == 0 %}_______{% else %} {{res.staff}}{% endif %} Staff
+</td>
+

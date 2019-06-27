@@ -1,0 +1,158 @@
+
+{% extends "general_print.html" %}
+{% block title %} Quote {{ quote.id }} {% endblock %}
+
+{% block stylesheets %}
+        {{ block.super }}
+        <link rel="stylesheet" href="/static/css/german_quote.css" />
+{% endblock %}
+
+{% block content %}
+<h1>Angebot</h1>
+
+<div id='quote_header'>
+    <p>
+    From: {{quote.file.operator}}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        Date: {{quote.date|date:"l, F d, Y"}}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quote No. #{{quote.id}}
+    </p>
+    <p>
+    To:     {{quote.to}} {{quote.file.agent}}
+    </p>
+    <h1>
+    {% if internal %}Internal{% endif %}
+    Quote #{{quote.file.fn}}
+    {{quote.file.name}} - 
+    {{quote.file.gtype}}
+    </h1>
+    <h2>
+    {{quote.file.adate|date:"SHORT_DATE_FORMAT"}} to 
+    {{quote.file.ddate|date:"SHORT_DATE_FORMAT"}} ({{quote.file.days}} Days / {{quote.file.nights}} Nights)
+    </h2>
+</div>
+
+{% if quote.opening_notes %}
+    {{quote.opening_notes|linebreaks}}
+{% else %}
+    <p>
+	GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+    </p><p>
+	</p>
+{% endif %}
+
+<div id='quote_accom'>
+{% if hotels %}
+<h3>Accommodation stated below or similar:</h3>
+
+<table class='no-borders'>
+	<tbody>
+		<tr>
+		{% for h in hotels %}
+			<td rowspan='{{h.rowspan}}'>{{h.ph.supplier.name}}</td>
+			{% for b in h.boards %}
+				<td>{{b.from_date|date:"SHORT_DATE_FORMAT"}} - {{b.till_date|date:"SHORT_DATE_FORMAT"}}</td>
+				<td>{{b.nights }} nights on {{b.board }}</td>
+				<td>{{h.ph.notes }}</td>
+				</tr><tr>
+			{% endfor %}
+		{% endfor %}
+	</tbody>
+</table>
+
+<p>
+	<p>
+		<span>Single in room suppliment: <strong>{{ single_suppliment }}</strong></span>&nbsp;&nbsp; &nbsp;
+		{% if child_reduction != 0 %} <span>Reduction of Child <u>as third</u> in room: <strong>{{ child_reduction }}</strong></span>&nbsp;&nbsp;&nbsp; {% endif %}
+		{% if third_reduction != 0 %}<span>Reduction of Third person in room: <strong>{{ third_reduction }}</strong></span> {% endif %}
+	</p>
+</p>
+
+<p>
+{{quote.accom_notes}}
+</p>
+<strong>B&B</strong> = Breakfast, <strong>H/B</strong> = Breakfast and Dinner, <strong>F/B</strong> = Breakfast, Lunch and Dinner.<br/>
+
+The number of single rooms in each group should not be more then 10% of the total number of rooms. If there is a request for more single rooms, there is a possibility that the hotels will charge at double room rate.
+</div>
+{% else %}
+<h2>No Hotels Included.</h2>
+{% endif %}
+
+<h3>Rates in {{quote.file.currency}}:</h3>
+
+<table>
+	<tbody>
+		<tr><th>Pax </th>{% for title in pricing_tbl.titles %}<td>{{ title }}</td>{% endfor %}	</tr>
+		<tr><th>Rate </th>{% for total in pricing_tbl.totals %}<td>{{ total }}</td>{% endfor %}</tr>
+	</tbody>
+</table>
+
+<p class='notes-5'>Rates are net and not commissionable in  {{quote.file.currency}} and Per person in double room.</p>
+<p class='notes-3'>
+Rate offer includes free passengers as indicated next to the number of paying passengers in each category (i.e. 20+1 means 1 free passenger on 20 full paying passengers).
+
+{% if sites.0 %}
+	<div class='float-left'>
+		<h3>Sites</h3>
+		<ul>{% for site in sites.0 %} 
+			{% if site.ispublished %}<li>{{ site.supplier }}</li>{% endif %}
+		{% endfor %}</ul>
+	</div>
+{% endif %}
+
+{% if rests.0 %}
+	<div class='float-left'>
+		<h3>Restaurants</h3>
+		<ul> {% for rest in rests.0 %}
+			{% if rest.ispublished %}<li>{{ rest.supplier }}</li>{% endif %}
+		{% endfor %} </ul>
+	</div>
+{% endif %}
+
+{% if op %}
+	<div>
+		<h3>Others</h3>
+		<ul>{% for op in others_p %}<li>{{op}}</li>{% endfor %}</ul>
+	</div>
+{% endif %}
+
+<div class='clear-both'></div>
+
+<div class='float-left'>
+<h3>Rates include</h3>
+	<ul>{% for op in others_p %}<li>{{op}} </li>{% endfor %}</ul>
+	<ul>{% for og in others_g %}<li>{{og}} </li>{% endfor %}</ul>
+</div>
+
+
+<div class='clear-both'></div>
+
+<h3>All services not mentioned above are not included.</h3>
+
+<h3>Notes:</h3>
+    <ul>
+        <li>All frees are on twin sharing basis, Limited to 4 frees. Additional frees can be calculated.</li>
+        <li>Rates could be subject to change due to the fluctuation in the dollar and fuel prices.</li>
+        <li>Rates are valid for these dates only, Any change will necessitate repricing (Jewish feasts, high season, etc.)</li>
+        <li>Price DOES NOT INCLUDE: tips (guide, driver, hotels, restaurants).</li>
+        <li>Price DOES NOT INCLUDE: medical coverage and personal expenses.</li>
+    </ul>
+
+<h3>Stornierungsbedingungen:</h3>
+<ul id=''>
+<li>Zu zahlende Kosten bei einer Stornierung</li>
+<li>bis 8 Wochen vor Reiseantritt: kostenlos</li>
+<li>bis 7 Wochen vor Reiseantritt: 15% des Packetpreises pro Person</li>
+<li>bis 5 Wochen vor Reiseantritt: 25% des Packetpreises pro Person</li>
+<li>bis 3 Wochen vor Reiseantritt: 50% des Packetpreises pro Person</li>
+<li>bis 1 Woche vor Reiseantritt: 75% des Packetpreises pro Person</li>
+</ul>
+
+{% if quote.closing_notes %}
+    {{quote.closing_notes|linebreaks}}
+{% else %}
+    <p>Please advise if the above rates and services meet with your approval.  Please also let me know if you have any further questions, special requests or would like to make any adjustments to these services.  We look forward to serving you here in Israel.</p>
+    <p>With best regards,</p>
+{% endif %}
+
+{% endblock %}
+

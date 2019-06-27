@@ -1,0 +1,43 @@
+
+{% extends "general.html" %}
+
+{% block title %} {% block h1 %} Hotels Banks {% endblock %}{% endblock %}
+
+{% block stylesheets %}
+	{{ block.super }}
+	<link rel="stylesheet" href="/static/css/list.css" />
+{% endblock %}
+
+{% block content %}
+
+<table class='table-sorter' border="1">
+<thead>
+	<tr>
+		<th>Hotel</th>
+		<th>Bank</th>
+		<th>Branch</th>
+		<th>Number</th>
+		<th>Account Name</th>
+		<th>IBAN</th>
+		<th>% Tax at Source</th>
+		<th>Email</th>
+	</tr>
+<thead>
+<tbody>
+	{% for h in hotels %}
+		<tr>
+			<td>{{h}}</td>
+			<td>{{h.account_bank}}</td>
+			<td>{{h.account_branch}}</td>
+			<td>{{h.account_no}}</td>
+			<td>{{h.account_name}}</td>
+			<td>{{h.account_iban}}</td>
+			<td>{{h.account_tax_at_source}}</td>
+			<td>{{h.accounting_email}}</td>
+		</tr>
+	{% endfor %}
+</tbody>
+</table>
+{% endblock %}
+
+

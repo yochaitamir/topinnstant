@@ -1,0 +1,29 @@
+
+.big-cube .content .controls {border-bottom: 1px solid #ccc; font-size: 0.8em; margin-top: -14px; min-width: 230px; padding-bottom: 2px; text-align: right;} 
+.big-cube .content .controls a {color:#555; margin-left:10px;}
+
+h2 a {float:right; font-size:.8em; color:#E8C346 !important; line-height:1.5em; font-weight:normal;}
+h2 a:hover {text-decoration:underline;}
+
+.class0, .class0 a {color:#E70000;}
+.class1, .class1 a {color:#F04B0F;}
+.class2, .class2 a {color:#888;}
+.class4, .class4 a {color:#000;}
+.class5, .class5 a {color:#1B7400;}
+
+li.printed {background:#eee;}
+
+#voucher_status span {background: url('/static/icons/positive.png') no-repeat center left #ffffcc; padding: 5px 5px 5px 28px; margin-right: 10px;}
+
+#main_edit {float:left; margin-bottom:20px;}
+.big-cube {min-width: 180px;}
+h2 {color:#068C8A;}
+
+.stat {float:right; margin-left: 10px; text-align: center; width: 20px; line-height: 1em; font-size: 1.5em;}
+
+.multiple-edit td, .multiple-edit th {vertical-align:middle;}
+.multiple-edit input {width:40px;}
+.multiple-edit textarea {height:2em;}
+
+.special_notes {font-size:1.2em; color:red;;}
+.special_notes .notes {color:#000; font-size:.7em;}

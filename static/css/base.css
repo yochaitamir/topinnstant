@@ -1,0 +1,78 @@
+
+@import url("colors.css"); 
+
+body {font-family: DejaVu Sans, Verdana, Candara, Arial, sans-serif; font-size:10pt; padding: 0; margin: 0; }
+
+a {text-decoration: none;}
+a:hover {text-decoration: underline}
+
+form input[type='text'] {border: 1px solid #bbb; background: #fafafa; font-size:1em;}
+
+.date-input {width:4em;}
+
+form textarea {
+	vertical-align: top; height:140px; font-family: DejaVu Sans, Verdana, Candara, Arial, sans-serif; font-size:.8em;
+	background: #fafafa; border: 1px solid #bbb;
+}
+textarea.autosize {height:20px;}
+
+.big1 {font-size: 2em;}
+.big2 {font-size: 1.3em;}
+.big3 {font-size: 1.2em;}
+
+.small1 {font-size: 0.5em;}
+
+.float-right {float: right;}
+.float-left {float: left;}
+.clear-both {clear:both;}
+
+.inline-block {display: inline-block; margin-right: 40px; vertical-align: top;}
+
+.align-right {text-align: right;}
+.align-left {text-align: left;}
+
+.wrapper {margin:0 auto; width:1000px;}
+
+.uppercase {text-transform:uppercase;}
+
+div.frame {border: 1px solid #493f0b; padding: .2em 1em; display: inline-block; border-radius: 1em;}
+span.inline-block {display:inline-block;}
+
+/*
+table.form-template {display:none;}
+*/
+.formset-custom-template, #formset_template {display:none;}
+
+ul.none-style {list-style: none; padding: .1em; margin:0;}
+
+input.filter {
+	background: #fff url('/static/icons/search.png') no-repeat center right;
+	border: 1px solid #493f0b; border-radius: 4px; padding: 1px 22px 1px 3px;
+}
+
+input[readonly] {text-align: center; border: 1px solid #000;}
+input.required-error {border: 1px solid red !important;} 
+
+.bold-btn {font-size:1.3em;  padding: 0 30px; margin-top: 20px; }
+.bold-btn .ui-button-text {padding: 0.1em 1em;}
+
+.saved-msg {display: inline-block; padding: 7px 15px; background: #8EFD7F; font-size:1.4em; border-radius:5px;}
+
+/*
+input.contract-price {background-color:#C1C1BD; border: 1px solid blue; text-align: center;}
+*/
+input.quote-price, input.special-price, input.contract-price {text-align: center; width:50px;}
+input.quote-price {border: 1px solid #ddd;}
+input.special-price {border: 1px solid #eee;}
+input.pint {width:30px;}
+
+.hidden {display: none;}
+
+.clear {clear: both;}
+
+iframe.print-preview {width:800px; height:600px; float:right;}
+iframe.mobile-preview {width:300px; height:500px; float:right;}
+
+dl.fold dt{cursor:pointer;}
+
+.icon-btn {cursor:pointer;}

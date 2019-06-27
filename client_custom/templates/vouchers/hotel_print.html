@@ -1,0 +1,78 @@
+
+{% extends "vouchers/base_print.html" %}
+
+{% block voucher_orig %}
+{% block voucher_copy %}
+
+<h1>Hotel Voucher #{{voucher.id}}</h1>
+
+<table class='no-borders voucher'>
+	<tbody>
+		<tr>
+			<th>Group:</th>
+			<td>{{voucher.file}}</td>
+		</tr>
+		<tr>
+			<th>Hotel:</th>
+			<td>{{voucher.plan.supplier}}</td>
+		</tr>
+		<tr>
+			<th>Number of Guests:</th>
+			<td>
+			<strong>{% if voucher.pax == 0 %}_______{% else %}{{voucher.pax}}{% endif %}</strong>
+			</br>
+			</br>
+			{% if voucher.adults == 0 %}_______{% else %}{{voucher.adults}}{% endif %} Adults,
+			{% if voucher.children == 0 %}_______{% else %}{{voucher.children}} {% endif %} Children,
+			{% if voucher.staff == 0 %}_______{% else %}{{voucher.staff}}{% endif %} Staff
+			</td>
+		</tr>
+		<tr>
+			<th>Rooms: </th>
+			<td>
+				<strong>{{voucher.rooms}}</strong>
+				</br>
+				{% if voucher.singles > 0 %}{{voucher.singles}} X, {% endif %}
+				{% if voucher.doubles > 0 %}{{voucher.doubles}} XX, {% endif %}
+				{% if voucher.triples > 0 %}{{voucher.triples}} XXX, {% endif %}
+				{% if voucher.quads > 0 %}{{voucher.quads}} XXXX, {% endif %}
+				{% if voucher.fams1 > 0 %}{{voucher.fams1}} XXx, {% endif %}
+				{% if voucher.fams2 > 0 %}{{voucher.fams2}} XXxx, {% endif %}
+				{% if voucher.fams3 > 0 %}{{voucher.fams3}} XXXx {% endif %}
+				<br/>
+				{% if voucher.staff_singles > 0 %}{{voucher.staff_singles}} Staff X, {% endif %}
+				{% if voucher.staff_doubles > 0 %}{{voucher.staff_doubles}} Staff XX, {% endif %}
+				{% if voucher.staff_triples > 0 %}{{voucher.staff_triples}} Staff XXX {% endif %}
+			</td>
+		</tr>
+{% if voucher.notes %}
+		<tr>
+			<th>Special Event:</th>
+			<td>{{voucher.notes|linebreaksbr}}</td>
+		</tr>
+{% endif %}
+		<tr>
+			<th>Dates :</th>
+			<td>{{voucher.from_date|date:"DATE_FORMAT"|default:"_________"}} to 
+			{{voucher.till_date|date:"DATE_FORMAT"|default:"__________"}} ({{voucher.plan.nights}} Nights)</td>
+			</td>
+		</tr>
+		<tr>
+			<th>Boards</th>
+			<td>
+			{% for hb in voucher.plan.boards %}
+			        <strong>{{hb.board}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {{hb.from_date}} - {{hb.till_date}} ({{hb.nights}} Nights)<br />
+			{% endfor %}
+			</td>
+		</tr>
+
+		<tr>
+			<th>Payment details:</th>
+			<td>{{voucher.get_payment_display}}	</td>
+		</tr>
+	</tbody>
+</table>
+
+{% endblock voucher_copy %}
+{% endblock voucher_orig %}
+

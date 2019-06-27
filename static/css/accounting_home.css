@@ -1,0 +1,20 @@
+#voucher_info {background:#eee; width:100%; height:0px; border:0 none;}
+
+table.voucher th {text-align:left; vertical-align:top;}
+table.voucher td.value {font-weight:bold; color:red;}
+#voucher_control {position:absolute; padding-left:10px; width:230px; border-left:1px solid #777; top:0; right:0;}
+#voucher_control ul.vstatus {list-style:none;}
+#voucher_control ul.vstatus li.status {background: url("/static/icons/positive.png") no-repeat scroll left center #FFFFCC; padding: 5px 5px 5px 28px; margin-bottom:5px;}
+
+#accounting_reports ul {display: inline-block; vertical-align: top;}
+
+#suppliers .content {height: 200px; overflow-y:scroll;}
+#suppliers .content table tbody tr td:first-child {padding-right:20px; text-transform: capitalize;}
+
+/* Added: 25.5.2014 */
+#logo h1 {position: absolute; top: 0px;}
+
+.cube50 {display: inline-block;  margin-bottom: 16px; width: 364px; vertical-align:top;}
+.cube50 .content {height:200px; overflow:auto;}
+
+#accounting_boxes .filter {margin:-26px 5px 0 0; float:right; width:150px; height:16px;}

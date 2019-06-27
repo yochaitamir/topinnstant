@@ -1,0 +1,13 @@
+
+
+#quote_details {margin-right: 10%; display: inline-block;}
+#quote_pax {display: inline-block; vertical-align: top; background:#DCE5FC; padding: 2%;}
+#quote_pax .e-btn-create {margin-top: 5%;}
+form {padding: 2%;}
+
+#list tr.live , #list tr.live th, #list tr.live td, #list tr.live th a {background:#F1974E; color:#fff;}
+
+#rates_iframe {margin-top:2em;}
+#rates_iframe iframe {width:600px; height:120px; display:block;}
+
+

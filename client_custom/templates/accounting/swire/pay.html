@@ -1,0 +1,102 @@
+
+{% extends "accounting/print_base.html" %}
+
+{% load humanize %}
+
+{% block title %} {{block.super }} Wire Transfer #{{wt.id}} {% endblock %}
+
+{% block content %}
+
+<h2>ORDER FOR FOREIGN CURRENCY PAYMENT</h2>
+
+<table class='no-borders'>
+<tbody>
+	<tr><th>Date: </th><td>{{wt.date|date:"DATE_FORMAT"}}</td></tr>
+	<tr><th>To: </th><td>{{wt.bank.desc}} </td></tr>
+	<tr><th>Attn: </th><td>Foreign Currency</td></tr>
+	</tr>
+</tbody>
+</table>
+
+<p>Please wire the following beneficiary customer from our Account No. {{wt.bank.number}}</p>
+<p style='float: right;'>Accounting Email: <a href='mailto:{{wt.sup.accounting_email}}?subject=העברה בנקאית משראל'>{{wt.sup.accounting_email}}</a></p>
+<h2>Amount: {{wt.currency}} {{wt.total|floatformat:2|intcomma}}</h2>
+
+
+<table class='no-borders two-cols'>
+<tbody>
+	<tr><td><strong>Hotel: </strong><span class='big1'>{{wt.sup}}</span></td></tr>
+	<tr><td><strong>Account Name: </strong>{{wt.sup.account_name}}</td></tr>
+	<tr><td><strong>Bank: </strong><span class='big1'>{{wt.sup.account_bank}}</span> &nbsp;&nbsp;&nbsp;&nbsp;
+		<strong>Branch: </strong><span class='big1'>{{wt.sup.account_branch}}</span>
+		<strong>Account No. </strong><span class='big1'>{{wt.sup.account_no}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+	</td></tr>
+	{% if wt.sup.account_iban %}
+	<tr><td><strong>IBAN: </strong><span class='big2'>{{wt.sup.account_iban}}</span> &nbsp;&nbsp;&nbsp;&nbsp;
+		<strong>Swift: </strong><span class='big2'>{{wt.sup.swift_code}}</span>
+	</td></tr>
+	<tr><td>
+		<strong>Company ID: </strong><span class='big2'>{{wt.sup.company_number}}</span>
+	</td></tr>
+	{% endif %}
+
+</tbody>
+</table>
+
+<br/>
+<table class='full-width' border="1">
+	<thead>
+		<tr>
+			<th>Invoice</th>		
+			<th>File</th>
+			<th>Hotel</th>
+			<th>Amount</th>
+			<th>Reduction (1.1%)</th>
+			<th>Total</th>
+		</tr>		
+	</thead>
+	<tbody>
+		{% for v in wt.vouchers.all %}
+		<tr>
+			<td>{{ v.supplier_invoice}}</td>
+			<td>{{ v.file }}</td>
+			<td>{{ v.child.sup}}</td>
+			<td>{{ v.sub_total|floatformat:2|intcomma }}</td>
+			<td>- {{ v.reduction|floatformat:2|intcomma }}</td>
+			<td>{{ v.total|floatformat:2|intcomma }}</td>
+		</tr>
+		{% endfor %}
+		<!--
+		<tr> <th colspan="4" class='align-right'>Sub Total:</th><td>{{invoice.sub_total|floatformat:2|intcomma}}</td> </tr>
+		<tr> <th colspan="4" class='align-right'>VAT:</th><td>{{invoice.vat|floatformat:2|intcomma}}</td> </tr>
+		<tr> <th colspan="4" class='align-right'>Total {{invoice.currency}}:</th><td>{{invoice.total|floatformat:2|intcomma}}</td> </tr>
+		<tr> <th colspan="4" class="align-right">Total {{base_currency}}:</th><td>{{invoice.total_base|floatformat:2|intcomma}}</td> </tr>
+		-->
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="5" class="align-right">Sub Total: </td>
+			<td>{{wt.sub_total|floatformat:2|intcomma}}</td>
+		</tr>
+		<tr>
+			<td colspan="5" class="align-right">Tax Deduction: </td>
+			<td>{{wt.tax_deduction|floatformat:2|intcomma}} ({{wt.sup.account_tax_at_source}} %)</td>
+		</tr>
+		<tr>
+			<td colspan="5" class="align-right">Total: </td>
+			<td>{{wt.total|floatformat:2|intcomma}}</td>
+		</tr>
+	</tfoot>
+	
+</table>
+</p>
+
+<br><br>
+{% endblock %}
+{% block print-footer %}
+<p class=''>Signature: __________________________________</p>
+{{block.super}}
+	
+{% endblock %}
+
+

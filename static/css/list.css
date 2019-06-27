@@ -1,0 +1,34 @@
+
+table.tablesorter {border: 1px solid #aaa; border-collapse:collapse;}
+table.tablesorter th {background-color: #dce5fc; font-weight: bold; text-align: left; padding: 3px 8px;}
+table.tablesorter td {color: #555; padding: 3px 8px; border-left: 1px solid #F5E0A2;}
+table.tablesorter tbody tr:nth-child(even) {background: #eee;}
+table.tablesorter tbody tr:nth-child(odd) {background: #fff;}
+table.tablesorter tbody tr:hover {background-color: #dce5fc;}
+table.tablesorter tbody tr.hl {background:#ffffaa;}
+table.tablesorter tbody tr.hl th {background:#ffffaa;}
+
+table.tablesorter th.header { 
+	cursor: pointer;  background-repeat: no-repeat; background-position: center right;
+	padding-right: 30px; padding-left: 6px;
+} 
+
+table.tablesorter th span.delete {margin-right:15px; color:red; font-size:2em; display:none;}
+
+th.headerSortDown {background-image: url('/static/icons/sort-desc.png');} 
+th.headerSortUp {background-image: url('/static/icons/sort-asc.png');} 
+th.headerSortDown, th.headerSortUp {border-bottom: 3px solid #E8C346;}
+
+#header {width: 50%;}
+#header #filter {position: absolute; right: 63px;}
+
+img.positive, img.negative {display:inline-block;}
+
+td.center {text-align:center;}
+
+table .ui-selected , table .ui-selecting {background: #F5E0A2 !important;}
+.sum-table tfoot tr {background-color: #dce5fc; }
+
+#list_controls {float:right;  margin-top: -2em;}
+
+.hl {background-color:#ffff00;}

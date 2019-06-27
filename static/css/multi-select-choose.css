@@ -1,0 +1,9 @@
+
+.multi-select-choose .source {display: inline-block; margin-left: 4%;}
+.multi-select-choose .controls {display: inline-block; text-align: center; width: 10%;}
+.multi-select-choose .controls button {display: block; position: absolute; }
+.multi-select-choose .controls .add {top: 40%;}
+.multi-select-choose .controls .remove {bottom: 40%;}
+.multi-select-choose .dest {display: inline-block; margin-right: 4%;}
+.multi-select-choose .source {width: 30%;}
+.multi-select-choose .dest {width: 50%;}
